@@ -182,3 +182,35 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.6 0.15 260);
 }
+
+.ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: ticker-scroll linear infinite;
+}
+.ticker-mask:hover .ticker-track {
+  animation-play-state: paused;
+}
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+.theme-dark .glass {
+  background: oklch(0.25 0.05 260 / 55%);
+  border-color: oklch(1 0 0 / 15%);
+  color: oklch(0.96 0.01 240);
+  box-shadow: 0 4px 24px oklch(0 0 0 / 30%);
+}
+.theme-dark .glass:hover {
+  background: oklch(0.3 0.06 260 / 65%);
+}

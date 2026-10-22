@@ -5,7 +5,6 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   resolve: {
     alias: {
-      "@/convex": path.resolve(__dirname, "./convex"),
       "@": path.resolve(__dirname, "./src"),
     },
   },
@@ -13,14 +12,6 @@ export default defineConfig({
     passWithNoTests: true,
     restoreMocks: true,
     projects: [
-      {
-        extends: true,
-        test: {
-          name: "convex",
-          environment: "edge-runtime",
-          include: ["convex/**/*.test.{ts,js}"],
-        },
-      },
       {
         extends: true,
         plugins: [react()],
